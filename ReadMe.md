@@ -9,6 +9,10 @@ docker run -d --name rabbitmq --network news-scraping-network -p 5672:5672 -p 15
 
 
 
+## MySQL Deploy
+
+
+
 ## RSS Update Scheduler
 
 
