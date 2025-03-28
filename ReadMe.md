@@ -1,5 +1,18 @@
 # News Scraping
 
+- [x] RSS Fetch
+- [ ] MySQL check duplicate and save
+- [x] RabbitMQ send
+- [x] RabbitMQ receive
+- [x] Webpage fetch
+- [ ] MySQL save text
+- [ ] AI summary
+- [ ] AI Reading
+- [ ] ffmpeg audio combine
+- [ ] Addition
+  - [ ] Support more webpage
+  - [ ] Docker container
+
 ## RabbitMQ deploy
 
 ```sh
