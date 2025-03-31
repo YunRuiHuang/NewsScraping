@@ -24,6 +24,10 @@ docker run -d --name rabbitmq --network news-scraping-network -p 5672:5672 -p 15
 
 ## MySQL Deploy
 
+```sh
+docker run --name news-mysql --network news-scraping-network -p 4000:3306 --restart always -e MYSQL_ROOT_PASSWORD=password -d mysql 
+```
+
 
 
 ## RSS Update Scheduler
