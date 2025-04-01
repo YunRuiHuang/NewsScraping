@@ -1,7 +1,7 @@
 # News Scraping
 
 - [x] RSS Fetch
-- [ ] MySQL check duplicate and save
+- [x] MySQL check duplicate and save
 - [x] RabbitMQ send
 - [x] RabbitMQ receive
 - [x] Webpage fetch

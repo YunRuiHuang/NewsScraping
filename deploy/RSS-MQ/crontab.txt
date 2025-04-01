@@ -1,2 +1,2 @@
-*/15 * * * * root python3 /app/RSS-MQ.py
+*/15 * * * *  root /usr/local/bin/python3 /app/RSS-MQ.py >> /var/log/cron.log 2>&1
 
