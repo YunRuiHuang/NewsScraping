@@ -5,7 +5,7 @@
 - [x] RabbitMQ send
 - [x] RabbitMQ receive
 - [x] Webpage fetch
-- [ ] MySQL save text
+- [x] MySQL save text
 - [ ] AI summary
 - [ ] AI Reading
 - [ ] ffmpeg audio combine
@@ -62,3 +62,12 @@ docker run --name rss-mq-app --network news-scraping-network -d rss-mq-app
 
 ## Chrome and Selenium
 
+```sh
+docker build -t mq-fetch-app .
+docker run --name mq-fetch-app --network news-scraping-network -d mq-fetch-app
+docker run --name mq-fetch-app -d mq-fetch-app
+```
+
+may help
+
+https://github.com/timoteostewart/dockerized-headfull-chrome-selenium
