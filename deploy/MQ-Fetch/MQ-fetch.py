@@ -54,6 +54,12 @@ try:
     method_frame, header_frame, body = channel.basic_get(queue='nytime', auto_ack=False)
 
     if method_frame:
+
+      if not db_conn.is_connected():
+        print(" [!] Reconnecting to MySQL...")
+        db_conn.reconnect(attempts=3, delay=5)
+        cursor = db_conn.cursor()
+
       data = json.loads(body)
       print(f" [x] Received title={data['title']}.\n author={data['author']},\n time = {data['date']}")
       output = webGet(data['url'])

@@ -49,14 +49,10 @@ CREATE TABLE news (
 
 ## RSS Update Scheduler
 
-### Docker
-
 ```sh
 docker build -t rss-mq-app .
 docker run --name rss-mq-app --network news-scraping-network -d rss-mq-app
 ```
-
-
 
 
 
@@ -65,9 +61,20 @@ docker run --name rss-mq-app --network news-scraping-network -d rss-mq-app
 ```sh
 docker build -t mq-fetch-app .
 docker run --name mq-fetch-app --network news-scraping-network -d mq-fetch-app
-docker run --name mq-fetch-app -d mq-fetch-app
 ```
 
-may help
+credit:
 
 https://github.com/timoteostewart/dockerized-headfull-chrome-selenium
+
+
+
+## AI Summary
+
+
+
+
+
+## AI Reading
+
+TTS
