@@ -71,6 +71,12 @@ https://github.com/timoteostewart/dockerized-headfull-chrome-selenium
 
 ## AI Summary
 
+```sh
+docker build -t gemini-summary-app .
+docker run --name gemini-summary-app --network news-scraping-network -d gemini-summary-app
+docker run --name gemini-summary-app -d gemini-summary-app
+```
+
 
 
 
