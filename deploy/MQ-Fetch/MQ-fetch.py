@@ -65,6 +65,7 @@ try:
       output = webGet(data['url'])
       cursor.execute(sql, (output, data['url']))
       db_conn.commit()
+      channel.basic_publish(exchange='news.fetch', routing_key='summary', body=body)
       channel.basic_ack(delivery_tag=method_frame.delivery_tag)
     else:
       print(" [*] No messages in queue.")

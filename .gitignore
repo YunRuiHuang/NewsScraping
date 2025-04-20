@@ -1,2 +1,5 @@
 RSS-MQ/*.txt
+TTS/*.txt
 *.crx
+*.wav
+config
