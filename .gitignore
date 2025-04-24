@@ -3,3 +3,4 @@ TTS/*.txt
 *.crx
 *.wav
 config
+node_modules

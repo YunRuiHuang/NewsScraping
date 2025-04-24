@@ -6,8 +6,9 @@
 - [x] RabbitMQ receive
 - [x] Webpage fetch
 - [x] MySQL save text
-- [ ] AI summary
+- [x] AI summary
 - [ ] AI Reading
+- [ ] File API (save audio)
 - [ ] ffmpeg audio combine
 - [ ] Addition
   - [ ] Support more webpage
@@ -58,6 +59,10 @@ docker run --name rss-mq-app --network news-scraping-network -d rss-mq-app
 
 ## Chrome and Selenium
 
+### File 
+
+*bypass-paywalls-firefox-clean-master.crx* : add-on file for Chrome
+
 ```sh
 docker build -t mq-fetch-app .
 docker run --name mq-fetch-app --network news-scraping-network -d mq-fetch-app
@@ -71,13 +76,30 @@ https://github.com/timoteostewart/dockerized-headfull-chrome-selenium
 
 ## AI Summary
 
+### File
+
+*config* : put the Google Gemini API key here
+
 ```sh
 docker build -t gemini-summary-app .
 docker run --name gemini-summary-app --network news-scraping-network -d gemini-summary-app
-docker run --name gemini-summary-app -d gemini-summary-app
 ```
 
 
+
+## File API
+
+### File
+
+*mount_smb.sh* : add the user name, password and IP address of SMB server
+
+```sh
+docker build -t file-app .
+
+docker run --privileged --name file-app --network news-scraping-network -d --restart always file-app
+
+docker run --privileged --name file-app -p 3001:3000 -d file-app
+```
 
 
 
