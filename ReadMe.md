@@ -66,6 +66,7 @@ docker run --name rss-mq-app --network news-scraping-network -d rss-mq-app
 ```sh
 docker build -t mq-fetch-app .
 docker run --name mq-fetch-app --network news-scraping-network -d mq-fetch-app
+docker run --name mq-fetch-app -p 3002:3000 -d mq-fetch-app
 ```
 
 credit:
@@ -96,13 +97,18 @@ docker run --name gemini-summary-app --network news-scraping-network -d gemini-s
 ```sh
 docker build -t file-app .
 
-docker run --privileged --name file-app --network news-scraping-network -d --restart always file-app
+docker run --privileged --name file-app -p 3007:3000 --network news-scraping-network -d file-app
 
-docker run --privileged --name file-app -p 3001:3000 -d file-app
+docker run --privileged --name file-app -p 3007:3000 -d file-app
 ```
 
 
 
 ## AI Reading
 
-TTS
+```sh
+docker build -t kokoro-tts-app .
+docker run --name kokoro-tts-app --network news-scraping-network -d kokoro-tts-app
+docker run --name kokoro-tts-app -d kokoro-tts-app
+```
+
