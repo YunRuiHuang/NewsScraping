@@ -63,6 +63,7 @@ try:
 
       cursor.execute(update_sql,(response.text,data['url']))
       db_conn.commit()
+      time.sleep(1) # make sure inserts is finish and up-to-date
       channel.basic_publish(exchange='news.summary', routing_key='tts', body=body)
       channel.basic_ack(delivery_tag=method_frame.delivery_tag)
 
