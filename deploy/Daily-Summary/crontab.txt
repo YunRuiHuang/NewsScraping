@@ -1,0 +1,2 @@
+30 7 * * *  root cd /app && /usr/local/bin/python3 /app/Daily-Summary.py >> /var/log/cron.log 2>&1
+

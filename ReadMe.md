@@ -112,3 +112,13 @@ docker run --name kokoro-tts-app --network news-scraping-network -d kokoro-tts-a
 docker run --name kokoro-tts-app -d kokoro-tts-app
 ```
 
+
+
+## Daily Summary
+
+```sh
+docker build -t daily-summary-app .
+docker run --name daily-summary-app --network news-scraping-network -d daily-summary-app
+docker run --name daily-summary-app -d daily-summary-app
+```
+
