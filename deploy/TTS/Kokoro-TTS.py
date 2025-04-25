@@ -34,6 +34,7 @@ try:
     method_frame, header_frame, body = channel.basic_get(queue='tts', auto_ack=False)
 
     if method_frame:
+      time.sleep(10)
       if not db_conn.is_connected():
         print(" [!] Reconnecting to MySQL...")
         db_conn.reconnect(attempts=3, delay=5)
@@ -41,13 +42,20 @@ try:
       
       data = json.loads(body)
       print(f" [x] Received title={data['title']}.\n author={data['author']},\n time = {data['date']}")
-      cursor.execute(get_sql,(data['url'],))
-      rows = cursor.fetchall()
-      summary = rows[0]['summary']
-      title = rows[0]['title']
-      author = rows[0]['author']
-      new_id = rows[0]['news_id']
-      text = f"\"{title}\" written by {author}. {summary}"
+      for attempt in range(3):
+        cursor.execute(get_sql, (data['url'],))
+        rows = cursor.fetchall()
+
+        if rows and 'summary' in rows[0]:  # if found
+            summary = rows[0]['summary']
+            title = rows[0]['title']
+            author = rows[0]['author']
+            new_id = rows[0]['news_id']
+            text = f"\"{title}\" written by {author}. {summary}"
+            break  # exit the retry loop
+        else:
+            print(f"Summary not found, retry {attempt + 1}/{3}...")
+            time.sleep(10)
 
       generator = pipeline(text, voice='af_heart')
       n = 0
