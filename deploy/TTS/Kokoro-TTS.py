@@ -34,14 +34,13 @@ try:
     method_frame, header_frame, body = channel.basic_get(queue='tts', auto_ack=False)
 
     if method_frame:
-      time.sleep(10)
-      if not db_conn.is_connected():
-        print(" [!] Reconnecting to MySQL...")
-        db_conn.reconnect(attempts=3, delay=5)
-        cursor = db_conn.cursor(dictionary=True)
+      print(" [!] Reconnecting to MySQL...")
+      db_conn.reconnect(attempts=3, delay=5)
+      cursor = db_conn.cursor(dictionary=True)
       
       data = json.loads(body)
       print(f" [x] Received title={data['title']}.\n author={data['author']},\n time = {data['date']}")
+      is_found = False
       for attempt in range(3):
         cursor.execute(get_sql, (data['url'],))
         rows = cursor.fetchall()
@@ -52,38 +51,44 @@ try:
             author = rows[0]['author']
             new_id = rows[0]['news_id']
             text = f"\"{title}\" written by {author}. {summary}"
+            is_found = True
+            print(f"Summary found")
             break  # exit the retry loop
         else:
             print(f"Summary not found, retry {attempt + 1}/{3}...")
             time.sleep(10)
 
-      generator = pipeline(text, voice='af_heart')
-      n = 0
-      for i, (gs, ps, audio) in enumerate(generator):
-          n = i
-          print(i, gs, ps)
-          sf.write(f'{i}.wav', audio, 24000)
+      if is_found:
+        generator = pipeline(text, voice='af_heart')
+        n = 0
+        for i, (gs, ps, audio) in enumerate(generator):
+            n = i
+            print(i, gs, ps)
+            sf.write(f'{i}.wav', audio, 24000)
 
-      output = AudioSegment.empty()
-      for i in range(n + 1):  # include 0.wav to n.wav
-          file_name = f"{i}.wav"
-          audio = AudioSegment.from_wav(file_name)
-          output += audio  # append
+        output = AudioSegment.empty()
+        for i in range(n + 1):  # include 0.wav to n.wav
+            file_name = f"{i}.wav"
+            audio = AudioSegment.from_wav(file_name)
+            output += audio  # append
 
-      output.export("output.wav", format="wav")
+        output.export("output.wav", format="wav")
 
-      files = {
-        "file": open("output.wav", "rb")
-      }
+        files = {
+          "file": open("output.wav", "rb")
+        }
 
-      data = {
-        "fileName": new_id,
-        "fileType": "wav"
-      }
+        data = {
+          "fileName": new_id,
+          "fileType": "wav"
+        }
 
-      response = requests.post(url, files=files, data=data)
+        response = requests.post(url, files=files, data=data)
 
-      channel.basic_ack(delivery_tag=method_frame.delivery_tag)
+        channel.basic_ack(delivery_tag=method_frame.delivery_tag)
+        
+      else:
+         channel.basic_nack(delivery_tag=method_frame.delivery_tag, requeue=True)
     else:
       print(" [*] No messages in queue.")
 

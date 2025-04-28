@@ -7,12 +7,42 @@
 - [x] Webpage fetch
 - [x] MySQL save text
 - [x] AI summary
-- [ ] AI Reading
-- [ ] File API (save audio)
-- [ ] ffmpeg audio combine
+- [x] AI Reading
+- [x] File API (save audio)
+- [x] ffmpeg audio combine
 - [ ] Addition
   - [ ] Support more webpage
-  - [ ] Docker container
+  - [x] Docker container
+
+
+
+## News Company
+
+| Company                       | Category                                          | Class Name | RSS URL                                                      |
+| ----------------------------- | ------------------------------------------------- | ---------- | ------------------------------------------------------------ |
+| BBC                           | World<br />Asia<br />US & Canada                  |            | http://feeds.bbci.co.uk/news/world/rss.xml<br />http://feeds.bbci.co.uk/news/world/asia/rss.xml<br />http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml |
+| CNN                           |                                                   |            | N/A                                                          |
+| Reuters                       | World<br />China<br />Asia-pacific                |            | http://rsshub:1200/reuters/world<br />http://rsshub:1200/reuters/world/china<br />http://rsshub:1200/reuters/world/asia-pacific |
+| Al Jazeera                    |                                                   |            |                                                              |
+| New York Times World          | World<br />Asia-Pacific                           |            | https://rss.nytimes.com/services/xml/rss/nyt/World.xml<br />https://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific.xml |
+| CNBC                          | World<br />US<br />Asia<br />Economy<br />Finance |            | https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100727362<br />https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15837362<br />https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19832390<br />https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258<br />https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664 |
+| Bloomberg Tech                |                                                   |            |                                                              |
+| TechCrunch                    | Tech                                              |            | https://techcrunch.com/feed/                                 |
+| The Verge                     | Tech                                              |            | https://www.theverge.com/rss/index.xml                       |
+| The Straits Times (Singapore) | World<br />Singapore<br />Asia                    |            | https://www.straitstimes.com/news/world/rss.xml<br />https://www.straitstimes.com/news/singapore/rss.xml<br />https://www.straitstimes.com/news/asia/rss.xml |
+| Channel NewsAsia (CNA)        | World<br />Singapore<br />Asia                    |            | https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311<br />https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=10416<br />https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6511 |
+| The Japan Times               |                                                   |            | https://www.japantimes.co.jp/feed/                           |
+| Nikkei Asia                   | Asia                                              |            | http://rsshub:1200/nikkei/asia                               |
+| The Korea Herald              | World                                             |            | https://www.koreaherald.com/rss/kh_World                     |
+| The Korea Times               |                                                   |            |                                                              |
+| South China Morning Post      | World<br />Asia<br />China                        |            | https://www.scmp.com/rss/5/feed<br />https://www.scmp.com/rss/3/feed<br />https://www.scmp.com/rss/4/feed |
+| Taiwan News                   |                                                   |            |                                                              |
+
+
+
+
+
+
 
 ## RabbitMQ deploy
 
@@ -54,8 +84,6 @@ CREATE TABLE news (
 docker build -t rss-mq-app .
 docker run --name rss-mq-app --network news-scraping-network -d rss-mq-app
 ```
-
-
 
 ## Chrome and Selenium
 
