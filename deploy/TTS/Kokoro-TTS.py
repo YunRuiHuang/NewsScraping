@@ -14,7 +14,7 @@ mysql_port = 3306
 url = "http://file-app:3000/file"
 get_sql = "SELECT news_id, summary, title, author FROM news WHERE URL = %s"
 
-mq_conn = pika.BlockingConnection(pika.ConnectionParameters(host=mq_host, port=mq_port))
+mq_conn = pika.BlockingConnection(pika.ConnectionParameters(host=mq_host, port=mq_port, heartbeat=60))
 channel = mq_conn.channel()
 channel.basic_qos(prefetch_count=1)
 

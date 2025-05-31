@@ -18,25 +18,25 @@
 
 ## News Company
 
-| Company                       | Category                                          | Class Name | RSS URL                                                      |
-| ----------------------------- | ------------------------------------------------- | ---------- | ------------------------------------------------------------ |
-| BBC                           | World<br />Asia<br />US & Canada                  |            | http://feeds.bbci.co.uk/news/world/rss.xml<br />http://feeds.bbci.co.uk/news/world/asia/rss.xml<br />http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml |
-| CNN                           |                                                   |            | N/A                                                          |
-| Reuters                       | World<br />China<br />Asia-pacific                |            | http://rsshub:1200/reuters/world<br />http://rsshub:1200/reuters/world/china<br />http://rsshub:1200/reuters/world/asia-pacific |
-| Al Jazeera                    |                                                   |            |                                                              |
-| New York Times World          | World<br />Asia-Pacific                           |            | https://rss.nytimes.com/services/xml/rss/nyt/World.xml<br />https://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific.xml |
-| CNBC                          | World<br />US<br />Asia<br />Economy<br />Finance |            | https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100727362<br />https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15837362<br />https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19832390<br />https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258<br />https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664 |
-| Bloomberg Tech                |                                                   |            |                                                              |
-| TechCrunch                    | Tech                                              |            | https://techcrunch.com/feed/                                 |
-| The Verge                     | Tech                                              |            | https://www.theverge.com/rss/index.xml                       |
-| The Straits Times (Singapore) | World<br />Singapore<br />Asia                    |            | https://www.straitstimes.com/news/world/rss.xml<br />https://www.straitstimes.com/news/singapore/rss.xml<br />https://www.straitstimes.com/news/asia/rss.xml |
-| Channel NewsAsia (CNA)        | World<br />Singapore<br />Asia                    |            | https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311<br />https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=10416<br />https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6511 |
-| The Japan Times               |                                                   |            | https://www.japantimes.co.jp/feed/                           |
-| Nikkei Asia                   | Asia                                              |            | http://rsshub:1200/nikkei/asia                               |
-| The Korea Herald              | World                                             |            | https://www.koreaherald.com/rss/kh_World                     |
-| The Korea Times               |                                                   |            |                                                              |
-| South China Morning Post      | World<br />Asia<br />China                        |            | https://www.scmp.com/rss/5/feed<br />https://www.scmp.com/rss/3/feed<br />https://www.scmp.com/rss/4/feed |
-| Taiwan News                   |                                                   |            |                                                              |
+| Company                       | Category                                          | Class Name                                                   | RSS URL                                                      |
+| ----------------------------- | ------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| BBC                           | World<br />Asia<br />US & Canada                  | `['erjHHi','hxuGS']`                                         | http://feeds.bbci.co.uk/news/world/rss.xml<br />http://feeds.bbci.co.uk/news/world/asia/rss.xml<br />http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml |
+| CNN                           |                                                   |                                                              | N/A                                                          |
+| Reuters(block)                | World<br />China<br />Asia-pacific                | `['article-body__paragraph__2-BtD']`                         | http://rsshub:1200/reuters/world<br />http://rsshub:1200/reuters/world/china<br />http://rsshub:1200/reuters/world/asia-pacific |
+| Al Jazeera                    |                                                   |                                                              |                                                              |
+| New York Times World          | World<br />Asia-Pacific                           | `['evys1bk0']`                                               | https://rss.nytimes.com/services/xml/rss/nyt/World.xml<br />https://rss.nytimes.com/services/xml/rss/nyt/AsiaPacific.xml |
+| CNBC                          | World<br />US<br />Asia<br />Economy<br />Finance | P label                                                      | https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100727362<br />https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15837362<br />https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19832390<br />https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258<br />https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664 |
+| Bloomberg Tech                |                                                   |                                                              |                                                              |
+| TechCrunch                    | Tech                                              | `['wp-block-paragraph']`                                     | https://techcrunch.com/feed/                                 |
+| The Verge                     | Tech                                              | `['duet--article--standard-paragraph','duet--article--article-pullquote']` | https://www.theverge.com/rss/index.xml                       |
+| The Straits Times (Singapore) | World<br />Singapore<br />Asia                    | `['paragraph-base']`                                         | https://www.straitstimes.com/news/world/rss.xml<br />https://www.straitstimes.com/news/singapore/rss.xml<br />https://www.straitstimes.com/news/asia/rss.xml |
+| Channel NewsAsia (CNA)        | World<br />Singapore<br />Asia                    | p label                                                      | https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311<br />https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=10416<br />https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6511 |
+| The Japan Times               |                                                   | P label                                                      | https://www.japantimes.co.jp/feed/                           |
+| Nikkei Asia                   | Asia                                              | P label                                                      | http://rsshub:1200/nikkei/asia                               |
+| The Korea Herald              | World                                             | p label                                                      | https://www.koreaherald.com/rss/kh_World                     |
+| The Korea Times               |                                                   |                                                              |                                                              |
+| South China Morning Post      | World<br />Asia<br />China                        | p label                                                      | https://www.scmp.com/rss/5/feed<br />https://www.scmp.com/rss/3/feed<br />https://www.scmp.com/rss/4/feed |
+| Taiwan News                   |                                                   |                                                              |                                                              |
 
 
 
@@ -148,5 +148,14 @@ docker run --name kokoro-tts-app -d kokoro-tts-app
 docker build -t daily-summary-app .
 docker run --name daily-summary-app --network news-scraping-network -d daily-summary-app
 docker run --name daily-summary-app -d daily-summary-app
+```
+
+
+
+## RSSHub
+
+```sh
+docker run -d --name rsshub -p 1200:1200 --network news-scraping-network -e NODE_ENV=production ghcr.io/diygod/rsshub:latest
+docker run -d --name rsshub -p 1200:1200 -e NODE_ENV=production ghcr.io/diygod/rsshub:latest
 ```
 
